@@ -2,7 +2,6 @@
 #include <string.h>
 #include <ctype.h>
 #include <stdlib.h>
-
 #define MAX 1000
 
 struct Date{
@@ -49,7 +48,6 @@ int addBorrow(struct Borrow borrows[], int *m, struct Book books[], int n);   //
 int isBookBeingBorrowed(struct Borrow borrows[], int m, int bookId);          // ham kiem tra co muon sach hay khong     
 int deleteBook(struct Book books[], int *n, struct Borrow borrows[], int m);  // xoa sach
 void searchBookByTitle(struct Book books[], int n);                           // tim kiem tuong doi theo ten
-
 void returnBook(struct Borrow borrows[], int m, struct Book books[], int n);  // tra sach
 void outputBorrowData(struct Borrow borrows[], int m);
 
@@ -302,7 +300,6 @@ void inputBookData(struct Book b[], int *n){
 	struct Book newBook;
 	newBook.bookId = generateId(b, *n);
 	do{
-		
 		printf("nhap ten sach: ");
 		fgets(newBook.title, sizeof(newBook.title), stdin);
 		newBook.title[strcspn(newBook.title, "\n")] = '\0';
@@ -459,7 +456,6 @@ void outputBookData(struct Book b[], int n){
     int totalPage = (n + pageSize - 1) / pageSize;
     
     do{
-    	
         int start = (pageNumber-1)*pageSize;
         int end = start + pageSize;
         printf("Trang %d/%d: \n", pageNumber, totalPage);
