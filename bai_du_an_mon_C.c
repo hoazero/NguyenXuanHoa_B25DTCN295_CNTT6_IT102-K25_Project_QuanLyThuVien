@@ -224,7 +224,6 @@ int generateId(struct Book books[], int n){
 	}else{
 		id++;
 	}
-	
 	return id;
 }
 
@@ -241,7 +240,6 @@ int generateIdBorrow(struct Borrow borrows[], int m){
 	}else{
 		id++;
 	}
-	
 	return id;
 }
 
@@ -279,7 +277,6 @@ int isPositiveInteger(char str[]){
 
 int inputPositiveInt(){
 	char buffer[100];
-	
 	while (1){
 		fgets(buffer, sizeof(buffer), stdin);
 		buffer[strcspn(buffer, "\n")] = '\0';
@@ -304,7 +301,6 @@ int inputPositiveInt(){
 void inputBookData(struct Book b[], int *n){
 	struct Book newBook;
 	newBook.bookId = generateId(b, *n);
-	
 	do{
 		
 		printf("nhap ten sach: ");
@@ -323,7 +319,6 @@ void inputBookData(struct Book b[], int *n){
 	}while (1);
 	
 	do{
-		
 		printf("nhap ten tac gia: ");
 		fgets(newBook.author, sizeof(newBook.author), stdin);
 		newBook.author[strcspn(newBook.author, "\n")] = '\0';
@@ -463,7 +458,6 @@ void outputBookData(struct Book b[], int n){
     char input[100];
     int totalPage = (n + pageSize - 1) / pageSize;
     
-    
     do{
     	
         int start = (pageNumber-1)*pageSize;
@@ -486,12 +480,11 @@ void outputBookData(struct Book b[], int n){
 	    	printf("2. Thoat ra menu\n");
 		}
 		if(pageNumber < totalPage){
-			printf("3. Chuyen sang trang tiep\n");
 			printf("2. Thoat ra menu\n");
+			printf("3. Chuyen sang trang tiep\n");
 		}
 		
 		do{
-			
 			printf("Nhap lua chon (1-3): ");
 			if(!fgets(input, sizeof(input), stdin)){
 				continue;
@@ -606,7 +599,6 @@ int compareDate(struct Date a, struct Date b){
 		return a.month < b.month;
 	}
 	return a.day <= b.day;
-    
 }
 
 int addBorrow(struct Borrow borrows[], int *m, struct Book books[], int n){
@@ -650,7 +642,6 @@ int addBorrow(struct Borrow borrows[], int *m, struct Book books[], int n){
 	
 	int publishYear = books[pos].publishYear;
     
-	
 	// Nhap ngay muon
     printf("\n----Nhap ngay muon----\n");
     do{
@@ -773,7 +764,6 @@ void toLowerCase(char *str){             // chuyen chu hoa thanh chu thuong
 
 void searchBookByTitle(struct Book books[], int n){
 	char key[100];
-	
 	do{
 		printf("Nhap ten sach muon tim: ");
 		fgets(key, sizeof(key), stdin);
@@ -949,8 +939,8 @@ void outputBorrowData(struct Borrow borrows[], int m){
 	    	printf("2. Thoat ra menu\n");
 		}
 		if(pageNumber < totalPage){
-			printf("3. Chuyen sang trang tiep\n");
 			printf("2. Thoat ra menu\n");
+			printf("3. Chuyen sang trang tiep\n");
 		}
 		
 		while (1){
