@@ -27,28 +27,28 @@ struct Borrow{
 	int status;
 };
 
-int generateId(struct Book books[], int n);                                   // ham tu tang id
+int generateId(struct Book books[], int n);                                   
 int generateIdBorrow(struct Borrow borrows[], int m);
-void toLowerCase(char *str);                                   // ham  chuyen chu hoa thanh chu thuong
+void toLowerCase(char *str);                                   
 void inputBookData(struct Book b[], int *n);
 void updateBookData(struct Book b[], int n);
 void outputBookData(struct Book b[], int n);
-int searchBook(struct Book b[], int n, int id);                // tim kiem id sach
+int searchBook(struct Book b[], int n, int id);                
 
-int titleExists(char title[], struct Book books[], int n);     // kiem tra ten sach trung nhau
-int isPositiveInteger(char str[]);                             // kiem tra so nguyen bang truoi
-int inputPositiveInt();                                        // nhap truoi de kiem tra so nguyen
-int isValidString(const char s[]);                             // kiem tra rong cua chuoi
+int titleExists(char title[], struct Book books[], int n);     
+int isPositiveInteger(char str[]);                             
+int inputPositiveInt();                                        
+int isValidString(const char s[]);                             
 
-int inputDateValue(const char *msg);                           // nhap ngay thang nam
-int isValidDate(struct Date d);                                // ham dieu kien nhap ngay thang nam
-int compareDate(struct Date a, struct Date b);                 // so sanh thoi gian muon va thoi gian tra 
+int inputDateValue(const char *msg);                           
+int isValidDate(struct Date d);                                
+int compareDate(struct Date a, struct Date b);                  
 
-int addBorrow(struct Borrow borrows[], int *m, struct Book books[], int n);   // them phieu muon
-int isBookBeingBorrowed(struct Borrow borrows[], int m, int bookId);          // ham kiem tra co muon sach hay khong     
-int deleteBook(struct Book books[], int *n, struct Borrow borrows[], int m);  // xoa sach
-void searchBookByTitle(struct Book books[], int n);                           // tim kiem tuong doi theo ten
-void returnBook(struct Borrow borrows[], int m, struct Book books[], int n);  // tra sach
+int addBorrow(struct Borrow borrows[], int *m, struct Book books[], int n);   
+int isBookBeingBorrowed(struct Borrow borrows[], int m, int bookId);               
+int deleteBook(struct Book books[], int *n, struct Borrow borrows[], int m);  
+void searchBookByTitle(struct Book books[], int n);                           
+void returnBook(struct Borrow borrows[], int m, struct Book books[], int n);  
 void outputBorrowData(struct Borrow borrows[], int m);
 
 int main (){
@@ -266,7 +266,7 @@ int isPositiveInteger(char str[]){
 	}
 	
 	for(; str[i] != '\0'; i++){
-		if(!isdigit(str[i])){                 // kiem tra ki tu co phai so nguyen khong
+		if(!isdigit(str[i])){                 
 			return 0;
 		}
 	}
@@ -289,6 +289,7 @@ int inputPositiveInt(){
 		}
 		else{
 			printf("nhap sai! hay nhap so nguyen duong: \n");
+			
 		}
 		
 	}
@@ -332,8 +333,7 @@ void inputBookData(struct Book b[], int *n){
 		
 		newBook.publishYear = inputPositiveInt();
 		if(newBook.publishYear <= 1900 || newBook.publishYear >=2027){
-			printf("phai lon hon 1900 va nho hon 2027\n");
-			
+			printf("phai lon hon 1900 va nho hon 2027\n");	
 		}  
 	}while (newBook.publishYear <= 1900 || newBook.publishYear >=2027);
 	
@@ -514,8 +514,8 @@ void outputBookData(struct Book b[], int n){
 		}
     } while (1);
 }
-// const chi doc khong cho phep sua doi noi dung trong chuoi
-// unsigned char de dam bao chi nhan gia tri tu 0 - 255, 1 cach an toan nhat
+
+
 int isValidString(const char s[]) {
     int len = strlen(s);
 
@@ -638,7 +638,7 @@ int addBorrow(struct Borrow borrows[], int *m, struct Book books[], int n){
 	
 	int publishYear = books[pos].publishYear;
     
-	// Nhap ngay muon
+	
     printf("\n----Nhap ngay muon----\n");
     do{
     	br.borrowDate.day = inputDateValue("Ngay: ");
@@ -656,7 +656,7 @@ int addBorrow(struct Borrow borrows[], int *m, struct Book books[], int n){
 		break;
 	}while (1);
 
-    // nhap ngay tra
+    
     printf("\n----Nhap ngay tra----\n");
     do{
     	br.borrowReturn.day = inputDateValue("Ngay: ");
@@ -704,14 +704,14 @@ int addBorrow(struct Borrow borrows[], int *m, struct Book books[], int n){
 	return 1;
 }
 
-// kiem tra muon sach
+
 int isBookBeingBorrowed(struct Borrow borrows[], int m, int bookId){
 	for(int i = 0; i < m; i++){
 		if(borrows[i].bookId == bookId && borrows[i].status == 1){
-			return 1;    // duoc muon
+			return 1;    
 		}
 	}
-	return 0;            // ko muon
+	return 0;            
 }
 
 int deleteBook(struct Book books[], int *n, struct Borrow borrows[], int m){
@@ -752,7 +752,7 @@ int deleteBook(struct Book books[], int *n, struct Borrow borrows[], int m){
 	return 1;
 }
 
-void toLowerCase(char *str){             // chuyen chu hoa thanh chu thuong
+void toLowerCase(char *str){             
 	for(int i = 0; str[i]; i++){
 		str[i] = tolower((unsigned char) str[i]);
 	}
